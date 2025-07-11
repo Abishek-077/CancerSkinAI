@@ -1,31 +1,28 @@
 # 🧠 CancerSkinAI: AI-Powered Skin Cancer Detection  
-> Deep Learning meets Dermatology — early melanoma awareness in seconds.
+> Deep Learning meets Dermatology — fast, accessible melanoma awareness.
 
-[![🔗 Live Demo](https://img.shields.io/badge/Live-Demo-green?style=for-the-badge)](https://mediskinai.vercel.app/)
-[![🧠 Built with PyTorch](https://img.shields.io/badge/Built%20With-PyTorch-red?style=for-the-badge&logo=pytorch)]()
-[![🖥️ Frontend: React + Tailwind](https://img.shields.io/badge/Frontend-React%20%2B%20Tailwind-blue?style=for-the-badge&logo=react)]()
-[![⚙️ Backend: FastAPI](https://img.shields.io/badge/Backend-FastAPI-005571?style=for-the-badge&logo=fastapi)]()
-
----
-
-## 🩺 Overview
-
-**CancerSkinAI** is a full-stack AI application that analyzes dermoscopic skin images and predicts whether a lesion is **benign or malignant**.  
-Born out of a personal mission to raise awareness around skin cancer, this project leverages deep learning for socially impactful healthcare innovation.
-
-> 🎯 **Goal**: Build an accessible, fast, and private skin lesion classification tool using state-of-the-art AI.
+[![🔗 Live Demo](https://img.shields.io/badge/Live-Demo-CancerSkinAI-green?style=for-the-badge)](https://mediskinai.vercel.app/)
+[![Built with PyTorch](https://img.shields.io/badge/Built%20With-PyTorch-red?style=for-the-badge&logo=pytorch)]()
+[![Frontend: React + Tailwind](https://img.shields.io/badge/Frontend-React%20%2B%20Tailwind-blue?style=for-the-badge&logo=react)]()
+[![Backend: FastAPI](https://img.shields.io/badge/Backend-FastAPI-005571?style=for-the-badge&logo=fastapi)]()
 
 ---
 
-## 👨‍💻 My Role  
-🗓️ *AI Engineer & Full-Stack Developer (Sept 2024 – Jan 2025)*
+## 👥 Team Members
 
-- 🧠 Trained a custom **ResNet50 CNN** using **PyTorch** on the **ISIC 2020 Challenge Dataset** (~33,000 images)
-- 📈 Achieved **91% test accuracy**, using **class-weighted loss** to handle heavy class imbalance (~85% benign)
-- 🧪 Validated performance on unseen data, comparing against EfficientNet and DenseNet
-- 🧩 Built a sleek, mobile-first UI using **React, Vite, and TailwindCSS**
-- 🔐 Deployed a privacy-focused **FastAPI backend** with auto-deletion of uploaded images post-inference
-- 🌍 Deployed full-stack: **Render (backend)** + **Vercel (frontend)**
+- 👨‍💻 **Abishek Ghimire** – ML Engineering & Frontend Integration  
+- 🧑‍💻 **Shreedhar Chaudhary** – Data Pipeline & Model Evaluation  
+- 👩‍💻 **Puja Bhandari** – Frontend Design & UX Testing  
+- 👩‍💻 **Shreya** – API Development & Documentation
+
+---
+
+## 🩺 Project Overview
+
+**CancerSkinAI** is a full-stack AI web application that classifies dermoscopic skin lesion images as **benign** or **malignant** using deep learning.  
+Inspired by the importance of early melanoma detection, our team built CancerSkinAI to explore how AI can assist in raising awareness for skin cancer — especially in underserved regions.
+
+> 💡 **Mission**: Make skin cancer detection more accessible, understandable, and privacy-first through AI.
 
 ---
 
@@ -33,66 +30,76 @@ Born out of a personal mission to raise awareness around skin cancer, this proje
 
 | Layer         | Tools |
 |---------------|-------|
-| **Frontend**  | React, TailwindCSS, Vite |
-| **Backend**   | FastAPI, Python |
-| **AI Model**  | PyTorch (ResNet50) |
-| **Dataset**   | ISIC 2020 Skin Lesion Dataset |
+| **Frontend**  | React, Vite, TailwindCSS |
+| **Backend**   | FastAPI (Python), CORS |
+| **AI Model**  | PyTorch (ResNet50 CNN) |
+| **Dataset**   | ISIC 2020 Challenge Dataset (~33K expert-labeled images) |
 | **Deployment**| Vercel (frontend), Render (backend) |
 
 ---
 
 ## 📊 Model Performance
 
-- **Architecture**: ResNet50 (custom-tuned)
-- **Training Platform**: MacBook Pro (M3 Pro chip, no GPU)
-- **Training Time**: ~3 days (PyTorch MPS + mixed precision)
-- **Dataset**: ISIC 2020 (medical-grade, 33K+ expert-labeled images)
-- **Test Accuracy**: **91%**
-- **Imbalance Handling**: Class-weighted loss & aggressive augmentation
+- 🧠 **Architecture**: Custom ResNet50 CNN  
+- 🖥️ **Training Device**: MacBook Pro (Apple M3 Pro chip)  
+- ⏱️ **Training Time**: ~3 days using PyTorch MPS backend (no dedicated GPU)  
+- 📈 **Test Accuracy**: **91%**  
+- ⚖️ **Imbalance Handling**: Used class-weighted loss for ~15% malignant cases  
+- 🔄 **Augmentations**: Random flips, lighting, zoom, rotation
 
 ---
 
-## 🔐 Privacy-First Features
+## 🔐 Privacy-First Design
 
-- 🚫 **No data is stored** — images are deleted immediately after prediction
-- 📢 Clear disclaimer: **This is not a diagnostic tool**
-- 🧠 Intended purely for **education and awareness**
-
----
-
-## 🔭 Challenges & Solutions
-
-| 🧩 Challenge | ✅ Solution |
-|-------------|------------|
-| Severe class imbalance | Weighted cross-entropy loss |
-| Real-world image variation | Data augmentation (flips, lighting, zoom, noise) |
-| Privacy and trust | Instant image deletion post-inference |
-| Deployment without GPU | Optimized for CPU + MPS backend |
+- 🚫 **No image is stored** on the server.
+- 🔒 **Automatic deletion** of uploaded images post-inference.
+- ⚠️ Clear disclaimer: **Not a clinical tool** — for awareness & education only.
 
 ---
 
-## 🚀 v2 Roadmap (Coming Soon)
+## 🧪 Challenges We Solved
 
-- [ ] 🐳 Dockerize frontend and backend
-- [ ] ☁️ Migrate backend to **Spring Boot + PostgreSQL**
-- [ ] 🔒 Deploy with HTTPS on **AWS EC2**
-- [ ] 📱 UI/UX upgrades with full mobile accessibility
-- [ ] 📊 Add lightweight analytics (privacy-respecting)
+| Problem                        | Solution |
+|-------------------------------|----------|
+| ⚠️ Class imbalance (85/15)     | Applied weighted loss during training |
+| 🌈 Diverse image quality       | Data augmentations (flip, light, noise) |
+| 🧼 Privacy & trust             | Auto-delete images after prediction |
+| 🧠 Choosing best architecture | Compared ResNet, EfficientNet, DenseNet |
 
 ---
 
-## 📬 Contact
+## 🚀 What’s Next? (v2 Roadmap)
 
-Want to collaborate, ask a question, or explore the model?
+- [ ] 🐳 Dockerize frontend & backend for portability
+- [ ] 🌐 Migrate backend to **Spring Boot** for scalability
+- [ ] 📲 Full UI/UX redesign for mobile-first interaction
+- [ ] ☁️ Host on **AWS EC2 with HTTPS**
+- [ ] 📈 Add analytics to track user interaction (privacy-respecting)
 
-- 📧 Email: `ryuichi.y.lun@gmail.com`
-- 💼 LinkedIn: [linkedin.com/in/ryulun](https://www.linkedin.com/in/ryulun/)
+---
+
+## 🧬 Why ISIC 2020?
+
+The **ISIC 2020 Challenge Dataset** is one of the largest, medically curated dermoscopic image sets, featuring real-world diagnosis complexity and imbalance.  
+It’s widely used in research papers, hackathons, and clinical AI benchmarks.
+
+---
+
+## 📬 Contact & Collaboration
+
+Feel free to connect or collaborate with any team member!
+
+- 📧 **Abishek** – `ryuichi.y.lun@gmail.com`
+- 💼 [Abishek's LinkedIn](https://www.linkedin.com/in/ryulun/)
+- Or open an issue in this repo 🚀
 
 ---
 
 ## ⚠️ Disclaimer
 
-> **CancerSkinAI is not a clinical diagnostic tool.**  
-> It is meant for **educational and awareness** purposes only. For any medical concerns, consult a certified dermatologist.
+> **CancerSkinAI is not a diagnostic tool.**  
+> It is built for **educational and awareness purposes only**.  
+> Always consult a licensed dermatologist for real medical concerns.
 
 ---
+
