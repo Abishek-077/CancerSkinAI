@@ -12,7 +12,7 @@
 
 - 👨‍💻 **Abishek Ghimire** – ML Engineering & Frontend Integration  
 - 🧑‍💻 **Shreedhar Chaudhary** – Data Pipeline & Model Evaluation  
-- 👩‍💻 **Puja Bhandari** – Frontend Design & UX Testing  
+- 👩‍💻 **Laxmi Khanal** – Frontend Design & UX Testing  
 - 👩‍💻 **Shreya** – API Development & Documentation
 
 ---
