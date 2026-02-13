@@ -16,16 +16,16 @@ const MainLayout = ({ children }) => {
     }, []);
 
     return (
-        <div
-            className={`min-h-screen flex flex-col transition-colors duration-300 bg-blue-100`}
-        >
-            {/* Navbar */}
+        <div className="page-shell">
+            <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+                <div className="orb orb-a" />
+                <div className="orb orb-b" />
+                <div className="orb orb-c" />
+                <div className="page-noise" />
+            </div>
+
             <NavBar isScrolled={isScrolled} />
-
-            {/* Main Content */}
             <main className="flex-grow">{children}</main>
-
-            {/* Footer */}
             <Footer />
         </div>
     );

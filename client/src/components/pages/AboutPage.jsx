@@ -1,77 +1,82 @@
-import { useEffect } from "react";
-import "aos/dist/aos.css"; // Import AOS styles
-import AOS from "aos";
 import StepImage from "../../assets/StepImage.jpeg";
 import ConcernImage from "../../assets/ConcernImage.jpeg";
 import CNNImage from "../../assets/CNNImage.jpeg";
 
-const AboutUsPage = () => {
-    useEffect(() => {
-        AOS.init({
-            duration: 800, 
-            offset: 200, 
-            easing: "ease-in-out", 
-            once: false, 
-        });
-    }, []);
+const storyBlocks = [
+    {
+        title: "Our Mission",
+        text: "Skin cancer is common, and delays in follow-up are still frequent. CancerSkinAI was created to offer a practical first screen that encourages earlier conversations with clinicians.",
+        image: StepImage,
+        alt: "Mission visual",
+    },
+    {
+        title: "The Challenge",
+        text: "Many people postpone appointments due to uncertainty, access limits, or anxiety. A fast AI pre-screen can reduce indecision and help users seek care sooner when needed.",
+        image: ConcernImage,
+        alt: "Challenge visual",
+        reverse: true,
+    },
+    {
+        title: "The Technology",
+        text: "Our pipeline uses convolutional neural networks based on ResNet-style architecture and lesion datasets such as ISIC. Predictions are paired with confidence scores and caution messaging.",
+        image: CNNImage,
+        alt: "Technology visual",
+    },
+];
 
+const AboutPage = () => {
     return (
-        <div className="flex flex-col">
-            {/* Hero Section */}
-            <div className="bg-blue-100 text-center py-16">
-                <h1 className="text-5xl font-bold text-gray-800">About Us</h1>
-            </div>
-
-            {/* Content Section */}
-            <div className="bg-white">
-                {/* Section 1: Our Mission */}
-                <div className="flex flex-col md:flex-row items-center py-16 px-8" data-aos="fade-up">
-                    <div className="md:w-1/2 text-center md:text-left">
-                        <h2 className="text-4xl font-bold text-gray-800 mb-4">Our Mission</h2>
-                        <p className="text-lg text-gray-600">
-                            Skin cancer is one of the most common forms of cancer, yet early detection can significantly improve outcomes. Our mission at MediSkinAI is to empower individuals to take the first step in understanding their skin health, bridging the gap between awareness and action.
+        <div className="pb-16">
+            <section className="section-spacing pt-10 sm:pt-14">
+                <div className="content-shell">
+                    <div className="glass-panel rounded-[2rem] p-8 sm:p-12">
+                        <span className="eyebrow">About</span>
+                        <h1 className="display-title mt-4 text-balance">Why CancerSkinAI exists</h1>
+                        <p className="copy-muted mt-5 max-w-3xl">
+                            We are building a responsible AI screening layer that helps users recognize
+                            risk signals and take the next right step. The product is focused on awareness,
+                            safety messaging, and clinical follow-up, not replacement of professional care.
                         </p>
                     </div>
-                    <div className="md:w-1/2 p-4">
-                        <img src={StepImage} alt="Mission" className="w-full h-auto rounded-lg shadow-lg" />
-                    </div>
                 </div>
+            </section>
 
-                {/* Section 2: The Challenge */}
-                <div className="flex flex-col md:flex-row-reverse items-center py-16 px-8 bg-gray-50" data-aos="fade-up">
-                    <div className="md:w-1/2 text-center md:text-left">
-                        <h2 className="text-4xl font-bold text-gray-800 mb-4">The Challenge</h2>
-                        <p className="text-lg text-gray-600">
-                            Studies show that over 3 million cases of skin cancer are diagnosed each year in the U.S, with rates of skin cancer continuing to rise globally. Despite these alarming statistics, many people delay seeking professional help due to fear, stigma, or lack of access. Our platform provides a non-intrusive way to assess skin health, giving users the confidence to consult a dermatologist if necessary.
-                        </p>
-                    </div>
-                    <div className="md:w-1/2 p-4">
-                        <img src={ConcernImage} alt="Challenge" className="w-full h-auto rounded-lg shadow-lg" />
-                    </div>
+            <section className="pt-3">
+                <div className="content-shell space-y-6">
+                    {storyBlocks.map((block, index) => (
+                        <article
+                            key={block.title}
+                            className="soft-card fade-up grid gap-5 rounded-[2rem] p-5 sm:p-6 lg:grid-cols-2 lg:items-center"
+                            style={{ animationDelay: `${index * 100}ms` }}
+                        >
+                            <div className={`space-y-4 ${block.reverse ? "lg:order-2" : ""}`}>
+                                <h2 className="section-title">{block.title}</h2>
+                                <p className="copy-muted text-base sm:text-lg">{block.text}</p>
+                            </div>
+                            <div className={block.reverse ? "lg:order-1" : ""}>
+                                <img
+                                    src={block.image}
+                                    alt={block.alt}
+                                    className="h-[280px] w-full rounded-2xl object-cover sm:h-[320px]"
+                                />
+                            </div>
+                        </article>
+                    ))}
                 </div>
+            </section>
 
-                {/* Section 3: The Technology */}
-                <div className="flex flex-col md:flex-row items-center py-16 px-8" data-aos="fade-up">
-                    <div className="md:w-1/2 text-center md:text-left">
-                        <h2 className="text-4xl font-bold text-gray-800 mb-4">The Technology</h2>
-                        <p className="text-lg text-gray-600">
-                            Our AI, powered by ResNet50, uses convolutional neural networks trained on the ISIC dataset to provide an analysis of moles or skin lesions with 91% accuracy. This state-of-the-art approach ensures reliability while remaining user-friendly.
-                        </p>
-                    </div>
-                    <div className="md:w-1/2 p-4">
-                        <img src={CNNImage} alt="Technology" className="w-full h-auto rounded-lg shadow-lg" />
+            <section className="pt-8">
+                <div className="content-shell">
+                    <div className="rounded-3xl border border-[rgba(196,84,45,0.2)] bg-[rgba(255,239,233,0.85)] px-6 py-5 text-sm leading-relaxed text-[var(--ink-700)] sm:text-base">
+                        <span className="font-semibold text-[var(--warn-500)]">Clinical disclaimer:</span>{" "}
+                        CancerSkinAI does not provide medical diagnoses. If a lesion looks suspicious,
+                        painful, changing, or bleeding, seek immediate evaluation by a licensed
+                        healthcare professional.
                     </div>
                 </div>
-
-                {/* Disclaimer Section */}
-                <div className="text-center py-8 px-8 bg-blue-100">
-                    <p className="text-gray-600 italic text-lg">
-                        Disclaimer: MediSkinAI is not a substitute for professional medical advice. Always consult a qualified healthcare provider for accurate diagnoses and treatment.
-                    </p>
-                </div>
-            </div>
+            </section>
         </div>
     );
 };
 
-export default AboutUsPage;
+export default AboutPage;

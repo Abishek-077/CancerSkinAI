@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 
 const TermsModal = ({ onAgree }) => {
     const [isVisible, setIsVisible] = useState(true);
@@ -8,40 +9,63 @@ const TermsModal = ({ onAgree }) => {
         onAgree();
     };
 
-    if (!isVisible) return null;
+    if (!isVisible) {
+        return null;
+    }
 
     return (
-        <div className="fixed inset-0 bg-gray-800 bg-opacity-75 flex justify-center items-center">
-            <div className="bg-white p-8 rounded-lg shadow-lg max-w-lg">
-                <h2 className="text-2xl font-bold mb-4">Terms and Conditions</h2>
-                <p className="text-gray-600 mb-6">
-                    By using this service, you agree to our{" "}
+        <div className="fixed inset-0 z-[80] flex items-center justify-center bg-slate-900/75 px-4 backdrop-blur-md">
+            <div className="w-full max-w-2xl rounded-[2rem] border border-white/20 bg-white/92 p-6 shadow-[0_24px_60px_rgba(0,0,0,0.35)] sm:p-8">
+                <span className="eyebrow">Before You Continue</span>
+                <h2 className="mt-4 text-3xl font-semibold text-[var(--ink-900)]">Important clinical notice</h2>
+                <p className="mt-4 text-sm leading-relaxed text-[var(--ink-700)] sm:text-base">
+                    CancerSkinAI offers an educational AI screening output only. It is not a medical
+                    diagnosis and should never be used as the only basis for treatment decisions.
+                </p>
+
+                <div className="mt-5 space-y-3 text-sm text-[var(--ink-700)]">
+                    <div className="flex gap-3">
+                        <span className="mt-2 h-2 w-2 rounded-full bg-[var(--accent-500)]" />
+                        <p>Always consult a dermatologist if a lesion changes shape, size, color, or bleeds.</p>
+                    </div>
+                    <div className="flex gap-3">
+                        <span className="mt-2 h-2 w-2 rounded-full bg-[var(--accent-500)]" />
+                        <p>False positives and false negatives are possible with any AI model.</p>
+                    </div>
+                    <div className="flex gap-3">
+                        <span className="mt-2 h-2 w-2 rounded-full bg-[var(--warn-500)]" />
+                        <p>Urgent symptoms should be evaluated by a medical professional immediately.</p>
+                    </div>
+                </div>
+
+                <p className="mt-5 text-sm text-[var(--ink-700)]">
+                    By continuing, you agree to our{" "}
                     <a
-                        href="/terms-and-conditions" // Change this path to the correct route or URL
-                        target="_blank" // Opens in a new tab
-                        rel="noopener noreferrer" // Ensures security for external links
-                        className="text-blue-500 underline hover:text-blue-600"
+                        href="/terms-and-conditions"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-semibold text-[var(--accent-600)] underline"
                     >
-                        terms and conditions
+                        Terms and Conditions
                     </a>
-                    . Please read them carefully before proceeding.
+                    .
                 </p>
-                <p className="text-gray-600 mb-6">
-                    Disclaimer: This platform is for educational purposes only and is not intended as a substitute for professional advice. 
-                </p>
-                <p className="text-red-600 font-bold mb-6">
-                    WARNING: The results provided by this platform may be inaccurate. If you are concerned about a skin lesion, consult a dermatologist immediately. 
-                    A malignant mole can sometimes appear benign in automated results. This tool is a first step to build confidence in seeking professional advice.
-                </p>
-                <button
-                    onClick={handleAgree}
-                    className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-lg"
-                >
-                    I Agree
-                </button>
+
+                <div className="mt-6 flex flex-wrap gap-3">
+                    <button type="button" onClick={handleAgree} className="primary-btn">
+                        I Understand and Agree
+                    </button>
+                    <a href="/" className="secondary-btn">
+                        Return Home
+                    </a>
+                </div>
             </div>
         </div>
     );
+};
+
+TermsModal.propTypes = {
+    onAgree: PropTypes.func.isRequired,
 };
 
 export default TermsModal;

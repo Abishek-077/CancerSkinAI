@@ -1,38 +1,69 @@
 import { Link } from "react-router-dom";
-import HomeImage from "../../assets/HomeImage.png"
+import HomeImage from "../../assets/HomeImage.png";
 
 const WelcomeSection = () => {
     return (
-        <div className="flex flex-col-reverse min-h-[calc(100vh-15rem)] md:flex-row items-center justify-center m-16 md:m-16 px-8" >
-            {/* Text Content */}
-            <div className="md:w-1/2 text-center md:text-left">
-                <h1 className="text-4xl md:text-6xl font-bold text-gray-800 mb-4">
-                Your Skin,
-                </h1>
-                <h1 className="text-4xl md:text-6xl font-bold text-gray-800 mb-4">
-                Your First Step
-                </h1>
-                <p className="text-lg text-gray-600">
-                Worried about a mole or skin change? Upload a photo to get an AI analysis indicating potential concerns and confidence levels.
-                </p>
-                <p className="text-gray-500 text-sm italic mb-6">
-                Disclaimer: This platform is for educational purposes only and is not intended as a substitute for professional advice. For an accurate diagnosis or specific medical concerns, please consult a qualified healthcare provider.
-                </p>
+        <section className="section-spacing pt-10 sm:pt-14">
+            <div className="content-shell">
+                <div className="grid gap-10 lg:grid-cols-[1.05fr,0.95fr] lg:items-center">
+                    <div className="fade-up">
+                        <span className="eyebrow">AI-assisted skin lesion screening</span>
+                        <h1 className="display-title mt-5 text-balance">
+                            See suspicious skin changes sooner, then take action with confidence.
+                        </h1>
+                        <p className="copy-muted mt-6 max-w-xl">
+                            Upload a single photo and receive a fast model prediction with confidence
+                            scoring. Built to support early awareness and better decisions about when
+                            to speak with a dermatologist.
+                        </p>
+                        <p className="mt-4 max-w-xl text-sm text-[var(--ink-600)]">
+                            This platform is educational only and is not a diagnosis tool.
+                        </p>
 
-                <Link to="/detection" className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg">
-                    Get Started
-                </Link>
-            </div>
+                        <div className="mt-8 flex flex-wrap gap-3">
+                            <Link to="/detection" className="primary-btn">
+                                Start Free Scan
+                            </Link>
+                            <Link to="/about" className="secondary-btn">
+                                Learn How It Works
+                            </Link>
+                        </div>
 
-            {/* Image */}
-            <div className="md:w-1/2 pl-2">
-                <img
-                src = {HomeImage}
-                alt="AI Robot Doctor making skin diagnosis"
-                className="w-full h-auto rounded-xl"
-                />
+                        <div className="mt-8 flex flex-wrap gap-2">
+                            <span className="pill">No account required</span>
+                            <span className="pill">Privacy-first upload flow</span>
+                            <span className="pill">Built on ISIC image data</span>
+                        </div>
+                    </div>
+
+                    <div className="fade-up [animation-delay:120ms]">
+                        <div className="soft-card overflow-hidden rounded-[2rem] p-4 sm:p-5">
+                            <img
+                                src={HomeImage}
+                                alt="AI support for skin health review"
+                                className="h-[340px] w-full rounded-[1.4rem] object-cover sm:h-[420px]"
+                            />
+                            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                                <div className="rounded-2xl bg-white/80 p-4">
+                                    <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--ink-600)]">
+                                        Model
+                                    </p>
+                                    <p className="mt-1 text-sm font-semibold text-[var(--ink-900)]">ResNet50 CNN</p>
+                                </div>
+                                <div className="rounded-2xl bg-white/80 p-4">
+                                    <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--ink-600)]">
+                                        Guidance
+                                    </p>
+                                    <p className="mt-1 text-sm font-semibold text-[var(--ink-900)]">
+                                        Results include confidence bands
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
+        </section>
     );
 };
 
